@@ -1,0 +1,105 @@
+﻿<local:SourceWindow x:Class="MayatoniaDisplay.SetupConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MayatoniaDisplay"
+        mc:Ignorable="d"
+        Title="Setup Application Configuration" Height="253.069" Width="612.727" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="CanMinimize">
+    <Grid Background="{DynamicResource AppBackgroundAspect}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 2 0 0" HorizontalAlignment="Left">
+            <Label x:Name="lblTitle" Content="Setup Application Configuration"  FontWeight="Bold" Height="24" HorizontalAlignment="Left" Margin="200 0 0 0">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF474747" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Button Name="btnCancel"  HorizontalAlignment="Right"  VerticalContentAlignment="Center" Margin="100 0 0 0" Width="48" Height="24" Opacity="0.75" RenderTransformOrigin="0.5,0.5" Click="btnCancel_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtCancel" VerticalAlignment="Center" Text="Cancel"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnSave" HorizontalAlignment="Right"  VerticalContentAlignment="Center" Margin="10 0 0 0" Width="48" Height="24" Opacity="0.75" RenderTransformOrigin="0.5,0.5" Click="btnSave_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtSave" VerticalAlignment="Center" Text="Save"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="stackMainContent" Grid.Row="2" Orientation="Vertical" Opacity=".75" Margin="10 0 10 0" Height="364" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9E9E9E" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Label FontWeight="Bold" Content="Specify Application wide options and configurations."  Grid.Column="0" Grid.Row="0"  HorizontalContentAlignment="Center"/>
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1"/>
+                </StackPanel>
+                <Grid x:Name="gridEditFields" Grid.Column="0" Grid.Row="1" IsEnabled="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28" />
+
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Banner Text:" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtBanner" Grid.Column="1" Grid.Row="0" Height="20" Width="200" HorizontalAlignment="Left"/>
+                    <Label Content="Office Abbrv:" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                        <TextBox x:Name="txtAbbreviation" Height="20" Width="350" />
+                        <Button Name="btnBrowse"   HorizontalAlignment="Right"  VerticalContentAlignment="Center" Margin="10 0 0 0" Width="48" Height="24" Opacity="0.75" RenderTransformOrigin="0.5,0.5" Click="btnBrowse_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock x:Name="txtBrowse" VerticalAlignment="Center" Text="Browse"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Label Content="Auto Start in:" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtStartSeconds" Grid.Column="1" Grid.Row="2" Height="20" Width="350" HorizontalAlignment="Left" />
+                    <Label Content="Connections:" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtConnections" Grid.Column="1" Grid.Row="3" Height="20" Width="350" HorizontalAlignment="Left" />
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF818181" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label x:Name="lblStatus" FontWeight="ExtraBold" Content="Ready" Width="607" Opacity="0.75"/>
+        </StackPanel>
+
+    </Grid>
+</local:SourceWindow>
+

@@ -1,0 +1,82 @@
+﻿<Window x:Class="MayatoniaDisplay.DisplaySingleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MayatoniaDisplay"
+        mc:Ignorable="d"
+        Title="Situational Awareness Display" Height="720" Width="720" ResizeMode="NoResize" Icon="Resources/DisplayIcon.ico" WindowStyle="None">
+    <Grid Name="gridMaster" Background="{DynamicResource AppBackgroundAspect}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="230" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Opacity="0.7" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA2A2A2" Offset="0"/>
+                    <GradientStop Color="#FF595959" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Margin="0 2 0 0" HorizontalAlignment="Center" >
+                <Border CornerRadius="50" BorderBrush="Black" BorderThickness="5" Background="#FFD8D8D8">
+                    <Label Name="lblBanner" Content=" Mayatonia Display - Washington D.C. "  HorizontalAlignment="Left" FontSize="80" Margin="0 0 0 0" />
+                    <Border.Effect>
+                        <DropShadowEffect />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                <Border CornerRadius="20 0 0 0" BorderBrush="Tan" BorderThickness="5" Background="Azure">
+                    <Label Name="lblOffice" Content="EST" FontSize="50" FontWeight="Bold"/>
+                </Border>
+                <Border CornerRadius="0 0 20 0" BorderBrush="Tan" BorderThickness="0 5 5 5" Background="Black">
+                    <Label x:Name="lblDateTime" Content="May 6, 2016 10:00 AM" FontSize="50" FontWeight="Bold" Foreground="White"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="stackStatus" Orientation="Horizontal" Grid.Row="3" >
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF818181" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label x:Name="lblStatus" FontWeight="ExtraBold" Content="Ready" Opacity="0.75" />
+        </StackPanel>
+
+        <Grid x:Name="gridBrowser" Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="lstItems" Margin="0,10,0,10" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Hidden" UseLayoutRounding="True" Opacity="0.4" BorderThickness="0" HorizontalAlignment="Left" Width="290" FocusVisualStyle="{DynamicResource ListBoxItemFocusStyle}" MouseDoubleClick="lstItems_MouseDoubleClick">
+                <ListBox.Effect>
+                    <DropShadowEffect/>
+                </ListBox.Effect>
+                <ListBox.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                             Color="Black"/>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                             Color="Yellow"/>
+                </ListBox.Resources>
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA0C6DC" Offset="0"/>
+                        <GradientStop Color="#FF4289B2" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <StackPanel x:Name="stackBrowser" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden">
+                <WebBrowser x:Name="wb" Margin="10 10 10 10" Panel.ZIndex="0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" LoadCompleted="wb_LoadCompleted"  Navigated="wb_Navigated" />
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Window>

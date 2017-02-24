@@ -1,0 +1,183 @@
+﻿<Window x:Class="MayatoniaDisplay.SetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MayatoniaDisplay"
+        mc:Ignorable="d"
+        Title="SetupWindow" Height="615.948" Width="687.727" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Icon="Resources/SetupIcon.ico" ResizeMode="CanMinimize">
+    <Grid Background="{DynamicResource AppBackground}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 2 0 0" HorizontalAlignment="Left">
+            <Label x:Name="lblTitle" Content="Setup Display #"  FontWeight="Bold" Height="24" HorizontalAlignment="Left" Margin="275 0 0 0">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF474747" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Button Name="btnCancel"  HorizontalAlignment="Right"  VerticalContentAlignment="Center" Margin="100 0 0 0" Width="48" Height="24" Opacity="0.75" RenderTransformOrigin="0.5,0.5" Click="btnCancel_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtCancel" VerticalAlignment="Center" Text="Cancel"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnSave" HorizontalAlignment="Right"  VerticalContentAlignment="Center" Margin="10 0 0 0" Width="48" Height="24" Opacity="0.75" RenderTransformOrigin="0.5,0.5" Click="btnSave_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtSave" VerticalAlignment="Center" Text="Save"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="stackMainContent" Grid.Row="2" Orientation="Vertical" Opacity=".75" Margin="10,0,10,2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9E9E9E" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="190"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="120" />
+                </Grid.RowDefinitions>
+                <Label FontWeight="Bold" Content="Display Layout"  Grid.Column="0" Grid.Row="0"  HorizontalContentAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Height="100">
+                    <Grid Margin="20 0 5 5">
+                        <Grid.Effect>
+                            <DropShadowEffect/>
+                        </Grid.Effect>
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <RadioButton x:Name="rbDisplaySingle" Grid.Row="0" HorizontalContentAlignment="Left" Content="Single Display" FontWeight="Bold" IsChecked="True" Checked="rbDisplaySingle_Checked"/>
+                        <Image x:Name="imgDisplaySingle" Grid.Row="1"  Source="/Resources/WindowStyle1.PNG" Stretch="UniformToFill" Width="100" MouseUp="imgDisplaySingle_MouseUp"/>
+                    </Grid>
+                    <Grid Margin="5 0 5 5">
+                        <Grid.Effect>
+                            <DropShadowEffect/>
+                        </Grid.Effect>
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <RadioButton x:Name="rbDisplayFour" Grid.Row="0" HorizontalContentAlignment="Left" Content="Quad Displays" FontWeight="Bold" IsChecked="False" Height="15" VerticalAlignment="Top" Checked="rbDisplayFour_Checked"/>
+                        <Image x:Name="imgDisplayFour" Grid.Row="1" Source="/Resources/WindowStyle2.PNG" Stretch="UniformToFill" Width="100" MouseUp="imgDisplayFour_MouseUp"/>
+                    </Grid>
+
+                    <Grid Margin="5 0 5 5">
+                        <Grid.Effect>
+                            <DropShadowEffect/>
+                        </Grid.Effect>
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <RadioButton x:Name="rbDisplayHybrid" Grid.Row="0" HorizontalContentAlignment="Left" Content="Hybrid Display" FontWeight="Bold" IsChecked="False" Checked="rbDisplayHybrid_Checked"/>
+                        <Image x:Name="imgDisplayHybrid" Grid.Row="1" Source="/Resources/WindowStyle3.PNG" Stretch="UniformToFill" MouseUp="imgDisplayHybrid_MouseUp" />
+                    </Grid>
+
+                    <Grid Margin="5 0 5 5">
+                        <Grid.Effect>
+                            <DropShadowEffect/>
+                        </Grid.Effect>
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <RadioButton x:Name="rbDisplayExternal" Grid.Row="0" HorizontalContentAlignment="Left" Content="External Display"  FontWeight="Bold" IsChecked="False" Checked="rbDisplayExternal_Checked"/>
+                        <Image x:Name="imgDisplayExternal" Grid.Row="1" Source="/Resources/ExternalApp.png" Stretch="UniformToFill" Width="85" MouseUp="imgDisplayExternal_MouseUp"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="0 0 0 5" VerticalAlignment="Top" Height="120">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20">
+                        <Label Content="         Enabled:  " FontWeight="Bold" Padding="2"/>
+                        <RadioButton Name="rbEnabled" Content="Yes" Checked="rbEnabled_Checked" Padding="2" />
+                        <RadioButton Name="rbDisabled" Margin="2 0 0 0" Content="No" Checked="rbDisabled_Checked" Padding="2" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="20">
+                        <Label Content="Show Header:  " FontWeight="Bold" Padding="2"/>
+                        <RadioButton Name="rbEnabledHeader" Content="Yes" Checked="rbEnabled_Checked" Padding="2" />
+                        <RadioButton Name="rbDisabledHeader" Margin="2 0 0 0" Content="No" Checked="rbDisabled_Checked" Padding="2" />
+                    </StackPanel>
+                    <Label Content="Manage Display Sources" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Center">
+                        <Button x:Name="btnAdd" Width="32" Height="32" Margin="5 0 0 0" Click="btnAdd_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Resources/Add.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnEdit" Width="32" Height="32" Margin="5 0 0 0" Click="btnEdit_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Resources/Edit.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnRemove" Width="32" Height="32" Margin="5 0 0 0" Click="btnRemove_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Resources/Remove.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnMoveUp" Width="32" Height="32" Margin="5 0 0 0" Click="btnMoveUp_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Resources/Up.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnMoveDown" Width="32" Height="32" Margin="5 0 0 0" Click="btnMoveDown_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Resources/Down.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <ListBox x:Name="lstContentSources" Height="405" SelectionChanged="lstContentSources_SelectionChanged" MouseDoubleClick="lstContentSources_MouseDoubleClick" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF818181" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label x:Name="lblStatus" FontWeight="ExtraBold" Content="Ready" Width="700" Opacity="0.75"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
